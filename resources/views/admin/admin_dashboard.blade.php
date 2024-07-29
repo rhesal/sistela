@@ -2,79 +2,105 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8" />
-    <title>Dashboard | Adminto - Responsive Admin Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
+    <!--  Title -->
+    <title>Mordenize</title>
+    <!--  Required Meta Tag -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="handheldfriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="description" content="Mordenize" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="Mordenize" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <!--  Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('dist/images/logos/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('dist/libs/jquery-raty-js/lib/jquery.raty.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/libs/dropzone/dist/min/dropzone.min.css') }}">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="{{ asset('dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}">
 
-    <!-- App css -->
+    <!-- Prism Js -->
+    <link rel="stylesheet" href="{{ asset('dist/libs/prismjs/themes/prism-okaidia.min.css') }}">
 
-    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
+    <!-- Datatable -->
+    <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
 
-    <!-- icons -->
-    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-
+    <!-- Core Css -->
+    <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
 </head>
 
-<!-- body start -->
-
-<body class="loading" data-layout-color="light" data-layout-mode="default" data-layout-size="fluid"
-    data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default'
-    data-sidebar-user='true'>
-
-    <!-- Begin page -->
-    <div id="wrapper">
-        <!-- Topbar Start -->
-        @include('admin.body.header')
-        <!-- end Topbar -->
-
-        <!-- ========== Left Sidebar Start ========== -->
-        @include('admin.body.sidebar')
-        <!-- Left Sidebar End -->
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-
-        @yield('admin')
-
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
-
-        <!-- Footer Start -->
-        @include('admin.body.footer')
-        <!-- end Footer -->
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="{{ asset('dist/images/logos/favicon.ico') }}" alt="loader" class="lds-ripple img-fluid" />
     </div>
-    <!-- END wrapper -->
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            @include('admin.body.sidebar')
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!--  Sidebar End -->
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            @include('admin.body.header')
+            <!--  Header End -->
+            @yield('admin')
+        </div>
+    </div>
 
-    <!-- Vendor -->
-    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/waypoints/lib/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
+    <!--  Import Js Files -->
+    <script src="{{ asset('dist/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
+    <script src="{{ asset('dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <!--  core files -->
+    <script src="{{ asset('dist/js/app.min.js') }}"></script>
+    <script src="{{ asset('dist/js/app.init.js') }}"></script>
+    <script src="{{ asset('dist/js/app-style-switcher.js') }}"></script>
+    <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
+    <script src="{{ asset('dist/js/custom.js') }}"></script>
+    <!--  current page js files -->
 
-    <!-- knob plugin -->
-    <script src="{{ asset('assets/libs/jquery-knob/jquery.knob.min.js') }}"></script>
+    <script src="{{ asset('dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('dist/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('dist/js/dashboard.js') }}"></script>
+    <script src="{{ asset('dist/js/plugins/toastr-init.js') }}"></script>
+    <script src="{{ asset('assets/extra-libs/jqbootstrapvalidation/validation.js') }}"></script>
+    <script src="{{ asset('dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('dist/js/datatable/datatable-basic.init.js') }}"></script>
+    <script>
+        !(function (window, document, $) {
+            "use strict";
+            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+        })(window, document, jQuery);
+    </script>
+    <script>
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type') }}"
+        switch(type){
+            case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
 
-    <!--Morris Chart-->
-    <script src="{{ asset('assets/libs/morris.js06/morris.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/raphael/raphael.min.js') }}"></script>
+            case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
 
-    <!-- Dashboar init js-->
-    <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
+            case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
 
-    <!-- App js-->
-    <script src="{{ asset('assets/js/app.min.js') }}"></script>
-
+            case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+        }
+        @endif
+    </script>
 </body>
 
 </html>

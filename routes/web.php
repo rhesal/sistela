@@ -33,7 +33,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+// Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 
 // Admin Group Middleware
 Route::middleware(['auth','role:admin'])->group(function(){
@@ -50,3 +51,18 @@ Route::middleware(['auth','role:admin'])->group(function(){
 Route::middleware(['auth','role:user'])->group(function(){
     Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
 });
+
+// Admin Group Middleware
+Route::middleware(['auth','role:admin'])->group(function(){
+
+    // Agent All Route from Admin
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/all/user', 'AllUser')->name('all.user');
+        Route::get('/add/user', 'AddUser')->name('add.user');
+        Route::post('/store/user', 'StoreUser')->name('store.user');
+        Route::get('/edit/user/{id}', 'EditUser')->name('edit.user');
+        Route::post('/update/user', 'UpdateUser')->name('update.user');
+        Route::get('/delete/user/{id}', 'DeleteUser')->name('delete.user');
+        Route::get('/changeStatus', 'changeStatus');
+    });
+});// End Group Admin Middleware

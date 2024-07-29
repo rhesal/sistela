@@ -1,260 +1,123 @@
-<div class="navbar-custom">
-    <ul class="mb-0 list-unstyled topnav-menu float-end">
-
-        <li class="d-none d-lg-block">
-            <form class="app-search">
-                <div class="app-search-box">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="top-search">
-                        <button class="btn input-group-text" type="submit">
-                            <i class="fe-search"></i>
-                        </button>
-                    </div>
-                    <div class="dropdown-menu dropdown-lg" id="search-dropdown">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h5 class="mb-2 text-overflow">Found 22 results</h5>
+<header class="app-header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse" href="javascript:void(0)">
+                    <i class="ti ti-menu-2"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="d-block d-lg-none">
+            <img src="{{ asset('dist/images/logos/dark-logo.svg') }}" class="dark-logo" width="180" alt="" />
+        </div>
+        <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="p-2">
+                <i class="ti ti-dots fs-7"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="d-flex align-items-center justify-content-between">
+                <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ti ti-bell-ringing"></i>
+                            <div class="notification bg-primary rounded-circle"></div>
+                        </a>
+                        <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
+                            aria-labelledby="drop2">
+                            <div class="d-flex align-items-center justify-content-between py-3 px-7">
+                                <h5 class="mb-0 fs-5 fw-semibold">Notifications</h5>
+                                <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm">5 new</span>
+                            </div>
+                            <div class="message-body" data-simplebar>
+                                <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
+                                    <span class="me-3">
+                                        <img src="{{ asset('dist/images/profile/user-1.jpg') }}" alt="user"
+                                            class="rounded-circle" width="48" height="48" />
+                                    </span>
+                                    <div class="w-75 d-inline-block v-middle">
+                                        <h6 class="mb-1 fw-semibold">Roman Joined the Team!</h6>
+                                        <span class="d-block">Congratulate him</span>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
+                                    <span class="me-3">
+                                        <img src="{{ asset('dist/images/profile/user-2.jpg') }}" alt="user"
+                                            class="rounded-circle" width="48" height="48" />
+                                    </span>
+                                    <div class="w-75 d-inline-block v-middle">
+                                        <h6 class="mb-1 fw-semibold">New message</h6>
+                                        <span class="d-block">Salma sent you new message</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="py-6 px-7 mb-1">
+                                <button class="btn btn-outline-primary w-100"> See All Notifications </button>
+                            </div>
                         </div>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-home me-1"></i>
-                            <span>Analytics Report</span>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <div class="user-profile-img">
+                                    <img src="{{ asset('dist/images/profile/user-1.jpg') }}" class="rounded-circle"
+                                        width="35" height="35" alt="" />
+                                </div>
+                            </div>
                         </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-aperture me-1"></i>
-                            <span>How can I help you?</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-settings me-1"></i>
-                            <span>User profile settings</span>
-                        </a>
-
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="mb-2 text-overflow text-uppercase">Users</h6>
-                        </div>
-
-                        <div class="notification-list">
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="d-flex align-items-start">
-                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-2.jpg"
-                                        alt="Generic placeholder image" height="32">
-                                    <div class="w-100">
-                                        <h5 class="m-0 font-14">Erwin E. Brown</h5>
-                                        <span class="mb-0 font-12">UI Designer</span>
+                        <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
+                            aria-labelledby="drop1">
+                            <div class="profile-dropdown position-relative" data-simplebar>
+                                <div class="py-3 px-7 pb-0">
+                                    <h5 class="mb-0 fs-5 fw-semibold">User Profile</h5>
+                                </div>
+                                <div class="d-flex align-items-center py-9 mx-7 border-bottom">
+                                    <img src="{{ asset('dist/images/profile/user-1.jpg') }}" class="rounded-circle"
+                                        width="80" height="80" alt="" />
+                                    <div class="ms-3">
+                                        <h5 class="mb-1 fs-3">Mathew Anderson</h5>
+                                        <span class="mb-1 d-block text-dark">Designer</span>
+                                        <p class="mb-0 d-flex text-dark align-items-center gap-2">
+                                            <i class="ti ti-mail fs-4"></i> info@modernize.com
+                                        </p>
                                     </div>
                                 </div>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="d-flex align-items-start">
-                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-5.jpg"
-                                        alt="Generic placeholder image" height="32">
-                                    <div class="w-100">
-                                        <h5 class="m-0 font-14">Jacob Deo</h5>
-                                        <span class="mb-0 font-12">Developer</span>
-                                    </div>
+                                <div class="message-body">
+                                    <a href="{{ route('admin.profile') }}"
+                                        class="py-8 px-7 mt-8 d-flex align-items-center">
+                                        <span
+                                            class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
+                                            <img src="{{ asset('dist/images/svgs/icon-account.svg') }}" alt=""
+                                                width="24" height="24">
+                                        </span>
+                                        <div class="w-75 d-inline-block v-middle ps-3">
+                                            <h6 class="mb-1 bg-hover-primary fw-semibold"> My Profile </h6>
+                                            <span class="d-block text-dark">Account Settings</span>
+                                        </div>
+                                    </a>
+                                    <a href="{{ route('admin.change.password') }}" class="py-8 px-7 d-flex align-items-center">
+                                        <span
+                                            class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
+                                            <img src="{{ asset('dist/images/svgs/icon-key.svg') }}" alt="" width="24"
+                                                height="24">
+                                        </span>
+                                        <div class="w-75 d-inline-block v-middle ps-3">
+                                            <h6 class="mb-1 bg-hover-primary fw-semibold">Change Password</h6>
+                                            <span class="d-block text-dark">Make New Password</span>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+                                <div class="d-grid py-4 px-7 pt-8">
+                                    <a href="{{ route('admin.logout') }}" class="btn btn-outline-primary">Log Out</a>
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                </div>
-            </form>
-        </li>
-
-        <li class="dropdown d-inline-block d-lg-none">
-            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown"
-                href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="fe-search noti-icon"></i>
-            </a>
-            <div class="p-0 dropdown-menu dropdown-lg dropdown-menu-end">
-                <form class="p-3">
-                    <input type="text" class="form-control" placeholder="Search ..."
-                        aria-label="Recipient's username">
-                </form>
+                    </li>
+                </ul>
             </div>
-        </li>
-
-        <li class="dropdown notification-list topbar-dropdown">
-            <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
-                role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="fe-bell noti-icon"></i>
-                <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                <!-- item-->
-                <div class="dropdown-item noti-title">
-                    <h5 class="m-0">
-                        <span class="float-end">
-                            <a href="" class="text-dark">
-                                <small>Clear All</small>
-                            </a>
-                        </span>Notification
-                    </h5>
-                </div>
-
-                <div class="noti-scroll" data-simplebar>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                        <div class="notify-icon">
-                            <img src="assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
-                        </div>
-                        <p class="notify-details">Cristina Pride</p>
-                        <p class="mb-0 text-muted user-msg">
-                            <small>Hi, How are you? What about our next meeting</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-primary">
-                            <i class="mdi mdi-comment-account-outline"></i>
-                        </div>
-                        <p class="notify-details">Caleb Flakelar commented on Admin
-                            <small class="text-muted">1 min ago</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon">
-                            <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
-                        </div>
-                        <p class="notify-details">Karen Robinson</p>
-                        <p class="mb-0 text-muted user-msg">
-                            <small>Wow ! this admin looks good and awesome design</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-warning">
-                            <i class="mdi mdi-account-plus"></i>
-                        </div>
-                        <p class="notify-details">New user registered.
-                            <small class="text-muted">5 hours ago</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-info">
-                            <i class="mdi mdi-comment-account-outline"></i>
-                        </div>
-                        <p class="notify-details">Caleb Flakelar commented on Admin
-                            <small class="text-muted">4 days ago</small>
-                        </p>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <div class="notify-icon bg-secondary">
-                            <i class="mdi mdi-heart"></i>
-                        </div>
-                        <p class="notify-details">Carlos Crouch liked
-                            <b>Admin</b>
-                            <small class="text-muted">13 days ago</small>
-                        </p>
-                    </a>
-                </div>
-
-                <!-- All-->
-                <a href="javascript:void(0);" class="text-center dropdown-item text-primary notify-item notify-all">
-                    View all
-                    <i class="fe-arrow-right"></i>
-                </a>
-
-            </div>
-        </li>
-
-        <li class="dropdown notification-list topbar-dropdown">
-            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown"
-                href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="user-image" class="rounded-circle">
-                <span class="pro-user-name ms-1">
-                    Nowak <i class="mdi mdi-chevron-down"></i>
-                </span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                <!-- item-->
-                <div class="dropdown-header noti-title">
-                    <h6 class="m-0 text-overflow">Welcome !</h6>
-                </div>
-
-                <!-- item-->
-                <a href="contacts-profile.html" class="dropdown-item notify-item">
-                    <i class="fe-user"></i>
-                    <span>My Account</span>
-                </a>
-
-                <!-- item-->
-                <a href="auth-lock-screen.html" class="dropdown-item notify-item">
-                    <i class="fe-lock"></i>
-                    <span>Lock Screen</span>
-                </a>
-
-                <div class="dropdown-divider"></div>
-
-                <!-- item-->
-                <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item">
-                    <i class="fe-log-out"></i>
-                    <span>Logout</span>
-                </a>
-
-            </div>
-        </li>
-
-        <li class="dropdown notification-list">
-            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                <i class="fe-settings noti-icon"></i>
-            </a>
-        </li>
-
-    </ul>
-
-    <!-- LOGO -->
-    <div class="logo-box">
-        <a href="index.html" class="text-center logo logo-light">
-            <span class="logo-sm">
-                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
-            </span>
-            <span class="logo-lg">
-                <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="16">
-            </span>
-        </a>
-        <a href="index.html" class="text-center logo logo-dark">
-            <span class="logo-sm">
-                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
-            </span>
-            <span class="logo-lg">
-                <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="16">
-            </span>
-        </a>
-    </div>
-
-    <ul class="mb-0 list-unstyled topnav-menu topnav-menu-left">
-        <li>
-            <button class="button-menu-mobile disable-btn waves-effect">
-                <i class="fe-menu"></i>
-            </button>
-        </li>
-
-        <li>
-            <h4 class="page-title-main">Dashboard</h4>
-        </li>
-
-    </ul>
-
-    <div class="clearfix"></div>
-
-</div>
+        </div>
+    </nav>
+</header>
