@@ -17,6 +17,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('dist/images/logos/favicon.ico') }}" />
     <link rel="stylesheet" href="{{ asset('dist/libs/jquery-raty-js/lib/jquery.raty.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/libs/dropzone/dist/min/dropzone.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.css') }}">
     <!-- Owl Carousel  -->
     <link rel="stylesheet" href="{{ asset('dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}">
 
@@ -58,6 +59,7 @@
     <script src="{{ asset('dist/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
     <script src="{{ asset('dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/extra-libs/code/validate.min.js') }}"></script>
     <!--  core files -->
     <script src="{{ asset('dist/js/app.min.js') }}"></script>
     <script src="{{ asset('dist/js/app.init.js') }}"></script>
@@ -73,32 +75,36 @@
     <script src="{{ asset('assets/extra-libs/jqbootstrapvalidation/validation.js') }}"></script>
     <script src="{{ asset('dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('dist/js/datatable/datatable-basic.init.js') }}"></script>
+    <script src="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('dist/js/forms/sweet-alert.init.js') }}"></script>
+
     <script>
-        !(function (window, document, $) {
+        !(function(window, document, $) {
             "use strict";
             $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
         })(window, document, jQuery);
     </script>
+
     <script>
-        @if(Session::has('message'))
-        var type = "{{ Session::get('alert-type') }}"
-        switch(type){
-            case 'info':
-            toastr.info(" {{ Session::get('message') }} ");
-            break;
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'success':
-            toastr.success(" {{ Session::get('message') }} ");
-            break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'warning':
-            toastr.warning(" {{ Session::get('message') }} ");
-            break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'error':
-            toastr.error(" {{ Session::get('message') }} ");
-            break;
-        }
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
         @endif
     </script>
 </body>

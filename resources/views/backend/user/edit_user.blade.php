@@ -7,7 +7,7 @@
             <div class="px-4 py-3 card-body">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="mb-8 fw-semibold">Add User</h4>
+                        <h4 class="mb-8 fw-semibold">Edit User</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -16,7 +16,7 @@
                                 <li class="breadcrumb-item">
                                     <a class="text-muted " href="{{ route('all.user') }}">User List</a>
                                 </li>
-                                <li class="breadcrumb-item" aria-current="page">Add User</li>
+                                <li class="breadcrumb-item" aria-current="page">Edit User</li>
                             </ol>
                         </nav>
                     </div>
@@ -34,16 +34,17 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="px-4 py-3 border-bottom">
-                        <h5 class="mb-0 card-title fw-semibold">Add User Form</h5>
+                        <h5 class="mb-0 card-title fw-semibold">Edit User Form</h5>
                     </div>
                     <div class="p-4 card-body">
-                        <form id="myForm" action="{{ route('store.user') }}" method="POST" class="forms-sample">
+                        <form id="myForm" action="{{ route('update.user') }}" method="POST" class="forms-sample">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $user->id }}">
                             <div class="mb-4 row align-items-center">
                                 <label for="name" class="form-label fw-semibold col-sm-3 col-form-label">Name</label>
                                 <div class="col-sm-9 form-group">
                                     <input type="text" class="form-control text-capitalize" name="name" id="name"
-                                        placeholder="Name">
+                                        value="{{ $user->name }}">
                                 </div>
                             </div>
                             <div class="mb-4 row align-items-center">
@@ -51,7 +52,7 @@
                                     class="form-label fw-semibold col-sm-3 col-form-label">Username</label>
                                 <div class="col-sm-9 form-group">
                                     <input type="text" class="form-control" name="username" id="username"
-                                        placeholder="Username">
+                                        value="{{ $user->username }}">
                                 </div>
                             </div>
                             <div class="mb-4 row align-items-center">
@@ -65,19 +66,8 @@
                             <div class="mb-4 row align-items-center">
                                 <label for="email" class="form-label fw-semibold col-sm-3 col-form-label">Email</label>
                                 <div class="col-sm-9 form-group">
-                                    <div class="border input-group rounded-1">
-                                        <input type="text" class="border-0 form-control" name="email" id="email"
-                                            placeholder="johndeo">
-                                        <span class="px-6 bg-transparent border-0 input-group-text"
-                                            id="basic-addon1">@gmail.com</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-4 row align-items-center">
-                                <label for="password"
-                                    class="form-label fw-semibold col-sm-3 col-form-label">Password</label>
-                                <div class="col-sm-9 form-group">
-                                    <input type="password" class="form-control" name="password" id="password">
+                                    <input type="text" class="form-control" name="email" id="email"
+                                        value="{{ $user->email }}">
                                 </div>
                             </div>
                             <div class="row">
@@ -106,9 +96,6 @@
                     email: {
                         required: true,
                     },
-                    password: {
-                        required: true,
-                    },
                 },
                 messages: {
                     name: {
@@ -119,9 +106,6 @@
                     },
                     email: {
                         required: 'Please Enter Email',
-                    },
-                    password: {
-                        required: 'Please Enter Password',
                     },
                 },
                 errorElement: 'span',
