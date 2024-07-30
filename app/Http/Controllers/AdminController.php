@@ -101,6 +101,11 @@ class AdminController extends Controller
     public function AllUser()
     {
         $alluser = User::where('role', 'user')->get();
+
+        $title = 'Delete Data!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+
         return view('backend.user.all_user', compact('alluser'));
     }
 

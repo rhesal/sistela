@@ -1,15 +1,15 @@
 !(function ($) {
     "use strict";
-  
+
     var SweetAlert = function () {};
-  
+
     //examples
     (SweetAlert.prototype.init = function () {
       //Basic
       $("#sa-basic").click(function () {
         Swal.fire("Here's a message!");
       });
-  
+
       //A title with a text under
       $("#sa-title").click(function () {
         Swal.fire(
@@ -17,7 +17,7 @@
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed."
         );
       });
-  
+
       //Success Message
       $("#sa-success").click(function () {
         Swal.fire(
@@ -26,7 +26,7 @@
           "success"
         );
       });
-  
+
       //Warning Message
       $("#sa-warning").click(function () {
         Swal.fire(
@@ -44,7 +44,7 @@
           }
         );
       });
-  
+
       //Custom Image
       $("#sa-image").click(function () {
         Swal.fire({
@@ -53,7 +53,7 @@
           imageUrl: "../../dist/images/profile/user-2.jpg",
         });
       });
-  
+
       //Auto Close Timer
       $("#sa-close").click(function () {
         Swal.fire({
@@ -63,7 +63,7 @@
           showConfirmButton: false,
         });
       });
-  
+
       $("#model-error-icon").click(function () {
         Swal.fire({
           type: "error",
@@ -72,7 +72,7 @@
           footer: "<a href>Why do I have this issue?</a>",
         });
       });
-  
+
       $("#sa-html").click(function () {
         Swal.fire({
           title: "<strong>HTML <u>example</u></strong>",
@@ -90,7 +90,7 @@
           cancelButtonAriaLabel: "Thumbs down",
         });
       });
-  
+
       $("#sa-position").click(function () {
         Swal.fire({
           position: "top-end",
@@ -100,7 +100,7 @@
           timer: 1500,
         });
       });
-  
+
       $("#sa-animation").click(function () {
         Swal.fire({
           title: "Custom animation with Animate.css",
@@ -110,7 +110,7 @@
           },
         });
       });
-  
+
       $("#sa-confirm").click(function () {
         Swal.fire({
           title: "Are you sure?",
@@ -126,7 +126,7 @@
           }
         });
       });
-  
+
       $("#sa-passparameter").click(function () {
         const swalWithBootstrapButtons = Swal.mixin({
           customClass: {
@@ -135,7 +135,7 @@
           },
           buttonsStyling: false,
         });
-  
+
         swalWithBootstrapButtons
           .fire({
             title: "Are you sure?",
@@ -165,7 +165,7 @@
             }
           });
       });
-  
+
       $("#sa-bg").click(function () {
         Swal.fire({
           title: "Custom width, padding, background.",
@@ -180,7 +180,7 @@
                       `,
         });
       });
-  
+
       $("#sa-autoclose").click(function () {
         let timerInterval;
         Swal.fire({
@@ -206,7 +206,7 @@
           }
         });
       });
-  
+
       $("#sa-rtl").click(function () {
         Swal.fire({
           title: "هل تريد الاستمرار؟",
@@ -220,7 +220,7 @@
           showCloseButton: true,
         });
       });
-  
+
       $("#sa-ajax").click(function () {
         Swal.fire({
           title: "Submit your Github username",
@@ -253,7 +253,7 @@
           }
         });
       });
-  
+
       $("#sa-chain").click(function () {
         Swal.mixin({
           input: "text",
@@ -282,10 +282,10 @@
             }
           });
       });
-  
+
       $("#sa-queue").click(function () {
         const ipAPI = "https://api.ipify.org?format=json";
-  
+
         Swal.queue([
           {
             title: "Your public IP",
@@ -306,7 +306,7 @@
           },
         ]);
       });
-  
+
       $("#sa-timerfun").click(function () {
         let timerInterval;
         Swal.fire({
@@ -329,38 +329,38 @@
           onBeforeOpen: () => {
             const content = Swal.getContent();
             const $ = content.querySelector.bind(content);
-  
+
             const stop = $("#stop");
             const resume = $("#resume");
             const toggle = $("#toggle");
             const increase = $("#increase");
-  
+
             Swal.showLoading();
-  
+
             function toggleButtons() {
               stop.disabled = !Swal.isTimerRunning();
               resume.disabled = Swal.isTimerRunning();
             }
-  
+
             stop.addEventListener("click", () => {
               Swal.stopTimer();
               toggleButtons();
             });
-  
+
             resume.addEventListener("click", () => {
               Swal.resumeTimer();
               toggleButtons();
             });
-  
+
             toggle.addEventListener("click", () => {
               Swal.toggleTimer();
               toggleButtons();
             });
-  
+
             increase.addEventListener("click", () => {
               Swal.increaseTimer(5000);
             });
-  
+
             timerInterval = setInterval(() => {
               Swal.getContent().querySelector("strong").textContent = (
                 Swal.getTimerLeft() / 1000
@@ -382,4 +382,3 @@
       "use strict";
       $.SweetAlert.init();
     })(window.jQuery);
-  

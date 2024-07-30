@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\backend\StelaController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 /*
@@ -55,14 +56,20 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 // Admin Group Middleware
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    // Agent All Route from Admin
+    // User All Route from Admin
     Route::controller(AdminController::class)->group(function () {
         Route::get('/all/user', 'AllUser')->name('all.user');
         Route::get('/add/user', 'AddUser')->name('add.user');
         Route::post('/store/user', 'StoreUser')->name('store.user');
         Route::get('/edit/user/{id}', 'EditUser')->name('edit.user');
         Route::post('/update/user', 'UpdateUser')->name('update.user');
-        Route::get('/delete/user/{id}', 'DeleteUser')->name('delete.user');
+        Route::delete('/delete/user/{id}', 'DeleteUser')->name('delete.user');
         Route::get('/changeStatus', 'changeStatus');
+    });
+
+    // Entry Manual All Route from Admin
+    Route::controller(StelaController::class)->group(function () {
+        Route::get('/all/stela', 'AllStela')->name('all.stela');
+        Route::get('/add/stela', 'AddStela')->name('add.stela');
     });
 });// End Group Admin Middleware

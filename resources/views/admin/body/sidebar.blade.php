@@ -3,7 +3,7 @@
         <a href="./index.html" class="text-nowrap logo-img">
             <img src="../../dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
         </a>
-        <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+        <div class="cursor-pointer close-btn d-lg-none d-block sidebartoggler" id="sidebarCollapse">
             <i class="ti ti-x fs-8 text-muted"></i>
         </div>
     </div>
@@ -43,7 +43,7 @@
                 </a>
                 <ul aria-expanded="false" class="collapse first-level">
                     <li class="sidebar-item">
-                        <a href="./blog-posts.html" class="sidebar-link">
+                        <a href="{{ route('all.stela') }}" class="sidebar-link">
                             <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                             </div>
