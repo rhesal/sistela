@@ -27,6 +27,9 @@
     <!-- Datatable -->
     <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('dist/libs/select2/dist/css/select2.min.css') }}">
+
     <!-- Core Css -->
     <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
 </head>
@@ -79,6 +82,9 @@
     <script src="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('dist/libs/sweetalert2/dist/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('dist/js/forms/sweet-alert.init.js') }}"></script>
+    <script src="{{ asset('dist/libs/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('dist/libs/select2/dist/js/select2.min.js') }}"></script>
+    <script src="{{ asset('dist/js/forms/select2.init.js') }}"></script>
     <script src="{{ asset('dist/js/dashboard.js') }}"></script>
 
     <script>

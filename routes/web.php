@@ -71,5 +71,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(StelaController::class)->group(function () {
         Route::get('/all/stela', 'AllStela')->name('all.stela');
         Route::get('/add/stela', 'AddStela')->name('add.stela');
+        Route::post('/store/stela', 'StoreStela')->name('store.stela');
+        Route::get('/edit/stela/{id}', 'EditStela')->name('edit.stela');
+        Route::post('/update/stela', 'UpdateStela')->name('update.stela');
+        Route::delete('/delete/stela/{id}', 'DeleteStela')->name('delete.stela');
+        Route::get('/print/stela/{id}', 'PrintStela')->name('print.stela');
+        Route::get('/changeStatus', 'changeStatus');
     });
 });// End Group Admin Middleware

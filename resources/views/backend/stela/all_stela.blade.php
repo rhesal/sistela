@@ -10,7 +10,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted"
                                         href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item" class="text-muted">Entry STELA</li>
+                                <li class="breadcrumb-item" class="text-muted">Entry STELA - Manual</li>
                                 <li class="breadcrumb-item" aria-current="page">STELA List</li>
                             </ol>
                             <ol class="breadcrumb">
@@ -54,7 +54,7 @@
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $item->nama_anak }}</td>
-                                                <td>{{ $item->tgl_lahir }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($item->tgl_lahir)->format('d M Y') }}</td>
                                                 <td>{{ $item->nama_ibu }}</td>
                                                 <td>
                                                     @if ($item->status == '1')
@@ -64,11 +64,15 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center button-group">
-                                                    <a href="" class="justify-content-center btn btn-warning"
-                                                        title="Edit"><i class="ti ti-edit"></i></a>
-                                                    <a href="" class="justify-content-center btn btn-danger"
-                                                        title="Delete" data-confirm-delete="true"><i
-                                                            class="ti ti-trash"></i></a>
+                                                    <a href="{{ route('edit.stela', $item->id) }}"
+                                                        class="justify-content-center btn btn-warning" title="Edit">
+                                                        <i class="ti ti-edit"></i></a>
+                                                    <a href="{{ route('delete.stela', $item->id) }}"
+                                                        class="justify-content-center btn btn-danger" title="Delete"
+                                                        data-confirm-delete="true"><i class="ti ti-trash"></i></a>
+                                                    <a href="{{ route('print.stela', $item->id) }}"
+                                                        class="justify-content-center btn btn-success" title="Print">
+                                                        <i class="ti ti-printer"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
